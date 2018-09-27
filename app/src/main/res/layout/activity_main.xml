@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
+    tools:context=".activies.MainActivity"
     android:background="@drawable/background1">
 
     <LinearLayout
@@ -49,7 +49,8 @@
             <Button
                 style="@style/butTic"
                 android:id="@+id/but00"
-                android:onClick="Jogada"/>
+                android:onClick="Jogada"
+              />
 
             <View android:layout_width="match_parent"
                 style="@style/linhas"/>
@@ -82,7 +83,8 @@
 
             <Button style="@style/butTic"
                 android:id="@+id/but10"
-                android:onClick="Jogada"/>
+                android:onClick="Jogada"
+                android:tag="1"/>
 
             <View android:layout_width="match_parent"
                 style="@style/linhas"/>
