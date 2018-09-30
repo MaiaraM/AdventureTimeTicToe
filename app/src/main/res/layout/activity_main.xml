@@ -30,13 +30,12 @@
         <TextView style="@style/texts"
             android:text="@string/vs"/>
 
+        <TextView  style="@style/texts"
+            android:text="@string/player_two" />
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/iconmini_jake3"/>
-
-        <TextView  style="@style/texts"
-            android:text="@string/player_two" />
 
     </LinearLayout>
 

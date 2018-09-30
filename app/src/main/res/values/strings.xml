@@ -3,7 +3,7 @@
     <string name="player_one">Finn</string>
     <string name="player_two">Jake</string>
     <string name="vs">X</string>
-    <string name="resert">Resert</string>
+    <string name="resert">Tentar Novamente</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
