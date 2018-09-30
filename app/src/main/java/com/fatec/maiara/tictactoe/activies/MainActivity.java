@@ -2,13 +2,19 @@ package com.fatec.maiara.tictactoe.activies;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AlertDialogLayout;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.fatec.maiara.tictactoe.R;
 
@@ -32,33 +38,76 @@ public class MainActivity extends AppCompatActivity {
         turn = PLAYER_1;
     }
 
+    private void showItemDialog(String winner){
+
+        try{
+            AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+            View view = getLayoutInflater().inflate(R.layout.dialog_winner, null);
+            TextView win = (TextView) view.findViewById(R.id.textWinner);
+            win.setText(winner);
+            Button again = view.findViewById(R.id.butAgain);
+            mBuilder.setView(view);
+
+            final AlertDialog dialog = mBuilder.create();
+            dialog.show();
+
+
+            again.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    reset();
+                    dialog.dismiss();
+                }
+            });
+
+
+
+        }catch (Exception e){
+            System.out.println(" ta dando pau " + e);
+        }
+
+    }
+
     private boolean verificaCelula(Button b1, Button b2, Button b3, Object string) {
         System.out.println("Linha:" + b1.getTag() + ";" + b2.getTag() + ";" + b3.getTag());
         return b1.getTag().equals(string) && b2.getTag().equals(b1.getTag()) && b3.getTag().equals(b2.getTag());
     }
 
+
+
     private void win(Button b1, Button b2, Button b3, View view) {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate_cell);
-        try {
-            b1.startAnimation(animation);
-            b2.startAnimation(animation);
-            b3.startAnimation(animation);
-            if (view.getTag().equals("Finn")) {
-                view.setBackgroundResource(R.drawable.iconfinn1);
-                Thread.sleep(300);
-                b1.setBackgroundResource(R.drawable.iconfinn);
-                b2.setBackgroundResource(R.drawable.iconfinn);
-                b3.setBackgroundResource(R.drawable.iconfinn);
-            } else {
-                view.setBackgroundResource(R.drawable.iconjake1);
-                Thread.sleep(300);
-                b1.setBackgroundResource(R.drawable.iconjake);
-                b2.setBackgroundResource(R.drawable.iconjake);
-                b3.setBackgroundResource(R.drawable.iconjake);
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Handler h = new Handler();
+        final String winner = (String) view.getTag();
+           try{
+               b1.startAnimation(animation);
+               b2.startAnimation(animation);
+               b3.startAnimation(animation);
+               if (view.getTag().equals("Finn")) {
+                   view.setBackgroundResource(R.drawable.iconfinn1);
+
+                   b1.setBackgroundResource(R.drawable.iconfinn);
+                   b2.setBackgroundResource(R.drawable.iconfinn);
+                   b3.setBackgroundResource(R.drawable.iconfinn);
+               } else {
+                   view.setBackgroundResource(R.drawable.iconjake1);
+
+                   b1.setBackgroundResource(R.drawable.iconjake);
+                   b2.setBackgroundResource(R.drawable.iconjake);
+                   b3.setBackgroundResource(R.drawable.iconjake);
+               }
+
+               h.postDelayed(new Runnable() {
+                   @Override
+                   public void run() {
+                       showItemDialog(winner);
+                   }
+               }, 1500)
+               ;
+           }catch (Exception e){
+
+           }
+
     }
 
     private void verificar(View view) {
@@ -68,10 +117,12 @@ public class MainActivity extends AppCompatActivity {
             }
             if (verificaCelula(arrayBut[1][0], arrayBut[1][1], arrayBut[1][2], view.getTag())) {
                 win(arrayBut[1][0], arrayBut[1][1], arrayBut[1][2], view);
+
             }
             if (verificaCelula(arrayBut[2][0], arrayBut[2][1], arrayBut[2][2], view.getTag())) {
                 win(arrayBut[2][0], arrayBut[2][1], arrayBut[2][2], view);
             }
+
             if (verificaCelula(arrayBut[0][0], arrayBut[1][0], arrayBut[2][0], view.getTag())) {
                 win(arrayBut[0][0], arrayBut[1][0], arrayBut[2][0], view);
             }
@@ -83,18 +134,18 @@ public class MainActivity extends AppCompatActivity {
             }
             if (verificaCelula(arrayBut[0][0], arrayBut[1][1], arrayBut[2][2], view.getTag())) {
                 win(arrayBut[0][0], arrayBut[1][1], arrayBut[2][2], view);
+
             }
             if (verificaCelula(arrayBut[0][2], arrayBut[1][1], arrayBut[2][0], view.getTag())) {
                 win(arrayBut[0][2], arrayBut[1][1], arrayBut[2][0], view);
-
-
-            } else {
-                System.out.println("Fracasso!");
             }
-        } catch (Exception e) {
-            System.out.println("Erro 2 " + e);
-        }
+
+    } catch(Exception e) {
+        System.out.println("Erro 2 " + e);
     }
+
+
+}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
