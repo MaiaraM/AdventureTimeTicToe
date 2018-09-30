@@ -2,8 +2,11 @@
 Jogo da Velha inspirado em Adventure Time
 
 <p align="center">
-       <image width="300" height="500" src="https://user-images.githubusercontent.com/40842310/46118162-9a911c80-c1db-11e8-8eaa-ad322d5911d2.jpg"/>
-       <image width="300" height="500" src="https://user-images.githubusercontent.com/40842310/46261574-c4905a80-c4cb-11e8-96b0-0f2a0406096e.png"/>
+       <image width="250" height="400" src="https://github.com/MaiaraM/AdventureTimeTicToe/blob/master/screen/Screentictoe1.jpg"/>
+       <image width="250" height="400" src="https://github.com/MaiaraM/AdventureTimeTicToe/blob/master/screen/ScreenTictoe2.jpg"/>
+     <image width="250" height="400" src="https://github.com/MaiaraM/AdventureTimeTicToe/blob/master/screen/ScreenTictoe3.jpg"/>
+       <image width="230" height="400" src="https://github.com/MaiaraM/AdventureTimeTicToe/blob/master/screen/ScreenTictoe4.jpg"/>
+       
        
  </p>
  
