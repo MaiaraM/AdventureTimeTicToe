@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                    public void run() {
                        showItemDialog(winner);
                    }
-               }, 1500)
+               }, 2000)
                ;
            }catch (Exception e){
 
