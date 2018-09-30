@@ -21,6 +21,10 @@ import com.fatec.maiara.tictactoe.R;
 import java.lang.reflect.Array;
 import java.util.List;
 
+/**
+ * Desenvolvido por Maiara Martins
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String PLAYER_1 = "Finn";
@@ -73,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         return b1.getTag().equals(string) && b2.getTag().equals(b1.getTag()) && b3.getTag().equals(b2.getTag());
     }
 
-
+//Desenvolvido por Maiara martins
 
     private void win(Button b1, Button b2, Button b3, View view) {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate_cell);
@@ -109,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
            }
 
     }
-
+    //Desenvolvido por Maiara martins
     private void verificar(View view) {
         try {
             if (verificaCelula(arrayBut[0][0], arrayBut[0][1], arrayBut[0][2], view.getTag())) {
@@ -191,6 +195,6 @@ public class MainActivity extends AppCompatActivity {
             System.out.println(e + "!");
         }
 
-
+//Desenvolvido por Maiara martins
     }
 }
